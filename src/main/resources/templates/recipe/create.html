@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
+
+<!-- <html xmlns:th="http://www.thymeleaf.org"> -->
+<head>
+<meta charset="UTF-8">
+<title th:text="#{recipe.create}">レシピ登録</title>
+<title>レシピ登録</title>
+</head>
+
+<body>
+	<h2>新規レシピ登録</h2>
+
+	<!-- 文字化けする　ここのrecipeはどこから参照しているのか？？ -->
+	<div layout:fragment="content">
+		<h2>レシピ登録</h2>
+		<form method="post" th:action="@{/create}" th:object="${recipeForm}">
+
+			<div class="form-group">
+				<label for="name">レシピ名</label> <input id="name" type="text"
+					name="name" th:value="*{name}" />
+			</div>
+			<div class="form-group">
+				<label for="calorie">カロリー</label> <input id="calorie" type="text"
+					name="calorie" th:value="*{calorie}" />
+			</div>
+			<button type="submit" class="btn">登録</button>
+			<a href="/recipe" class="btn" role="btn">戻る</a>
+		</form>
+		<!-- <form action="/create" method="post" th:object="${recipeForm}">
+		
+			<span>名前</span>:<input type="text" name="name"
+				th:value="*{name}"><br /> 
+			<span>カロリー</span>:
+			<input type="text" name="calorie" th:value="*{calorie}">
+			<button type="submit">登録</button>
+			
+		</form> -->
+	</div>
+	<!-- <form method="post" th:action="@{/create}" th:object="${recipeForm}">
+		
+		<div class="form-group">
+			<label for="name">レシピ名</label> <input id="name" type="text" name="name"
+				th:value="*{name}" />
+		</div>
+		<div class="form-group">
+			<label for="calorie">カロリー</label> <input id="calorie" type="text" name="calorie"
+				th:value="*{calorie}" />
+		</div>
+		<button type="submit" class="btn">登録</button>
+		<a href="/recipe" class="btn" role="btn">戻る</a>
+	</form>  -->
+</body>
+</html>
